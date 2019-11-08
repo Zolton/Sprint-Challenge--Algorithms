@@ -16,4 +16,6 @@ Don't drop any eggs.
 
 This problem doesn't make any sense.  The pseudo code would be something like (# of floors n) = (some operation to determine # of eggs broken).  There'd be a logic if-statement to determine when the number of broken eggs rose above some arbitrary limit, and to return what # floor the function was at before it broke through the limit
 
+In the end, even though the problem states "You have plenty of eggs", the solution depends on how many eggs you have vs how many you're willing to break.  If you don't care or have infinite eggs, then n is infinite.
+
 

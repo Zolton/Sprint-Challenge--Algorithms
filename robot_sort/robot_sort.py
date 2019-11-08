@@ -15,6 +15,8 @@ class SortingRobot:
         at the end of the list.
         """
         return self._position < len(self._list) - 1
+        # Check if at end of array or not
+        # False = at end of array
 
     def can_move_left(self):
         """
@@ -22,6 +24,8 @@ class SortingRobot:
         at the start of the list.
         """
         return self._position > 0
+        #Check if at beginning of array or not
+        # False = at beginning of array
 
     def move_right(self):
         """
@@ -35,6 +39,7 @@ class SortingRobot:
             return True
         else:
             return False
+        # If check passes, moves over 1
 
     def move_left(self):
         """
@@ -48,6 +53,7 @@ class SortingRobot:
             return True
         else:
             return False
+        #If check passes, moves back 1
 
     def swap_item(self):
         """
@@ -58,13 +64,18 @@ class SortingRobot:
         self._time += 1
         # Swap the held item with the list item at the robot's position
         self._item, self._list[self._position] = self._list[self._position], self._item
+        # Swap X for Y
 
     def compare_item(self):
         """
         Compare the held item with the item in front of the robot:
+        
         If the held item's value is greater, return 1.
+        
         If the held item's value is less, return -1.
+        
         If the held item's value is equal, return 0.
+        
         If either item is None, return None.
         """
         if self._item is None or self._list[self._position] is None:
@@ -91,13 +102,29 @@ class SortingRobot:
         Returns True if the robot's light is on and False otherwise.
         """
         return self._light == "ON"
-
+[5, 4, 3, 2, 1]
     def sort(self):
         """
         Sort the robot's list.
         """
+        sortedList = []
+        if self.can_move_right == False:
+            return sortedList
+        else:
+            if self._position == 0:
+                if self.compare_item() == 
+                
+        #if self_time
+        # Its a bubble sort - move right, swapping out numbers for
+        # greater values until self._time = len(l)
         # Fill this out
-        pass
+        print(self._time) #0
+        print(self._position) #0
+        self.swap_item()
+        self.move_right()
+        print(self._time) #2
+        print(self._position) #1
+        #print(self.can_move_right())
 
 
 if __name__ == "__main__":
@@ -109,4 +136,4 @@ if __name__ == "__main__":
     robot = SortingRobot(l)
 
     robot.sort()
-    print(robot._list)
+    #print(robot._list)

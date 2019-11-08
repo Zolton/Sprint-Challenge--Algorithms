@@ -9,12 +9,12 @@ test2 = "abcthefthghith"
 test3 = "asdf"
 count = 0
 def count_th(word):
-    word = word.lower()
+    #word = word.lower()
     global count
     #print("word1", word[:2])
     #print("word2", word[2:])
     #if word == 
-
+    
     if len(word) == 0:
         return count
     if word[:2] == "th":

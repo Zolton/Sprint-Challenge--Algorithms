@@ -28,6 +28,6 @@ def count_th(word):
     return count
 
 
-print(count_th(test3))
+print(count_th(test))
     
    

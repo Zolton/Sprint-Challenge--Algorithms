@@ -104,40 +104,87 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
+    #     """
+    #     Sort the robot's list.
+    #     """
+        #self.swap_item()
+        
+        self.set_light_on()
 
-        self.swap_item()
-        for i in range(len(l)):
-            #print("position at *i* is: ", self._position)
-            #print("Initially holding: ", self._item)
-            for j in range(i+1, len(l)):
-                if l[i] > l[j]:
-                    
-                    print("yes")
-                    print(l[i]
-        return l
-"""" Pseudo-code:
-        Selective Sort:
-            Set initial value to first item in array
-            Compare to next item in array - if item one index position up is greater, swap, if not, continue
-
-        Bubble Sort:
-            Move thru items in array and compare i to i+1.  If item is smaller, swap, if not, move on.
+        #print("outside while loop")
+        #print(self.can_move_right())
+        while self.light_is_on():   
+            self.set_light_off()
+            #print("Inside first while loop")
+            while self.can_move_right() == True:
+               # print("Inside second while loop")
+                #if self.light_is_on == True:
+                #print("Just entered while loop")
+                self.swap_item()
+                self.move_right()
+                # No sorting necessary
+                if self.compare_item() <= 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    #self.swap_item()
+                    #print("Didn't do anything")
+                    #self.set_light_off()
+                #Changes necessary
+                elif self.compare_item() == 1:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_on()
+                    #print("Just sorted something")
+                elif self.compare_item() == None:
+                    #print("list is: ", self._list)
+                    #print("Item getting stuck: ", self._item)
+                    return
+            #if self.can_move_right() ==  False:
+            #if self.light_is_on() == True:
+            while self.can_move_left() == True:
+                self.move_left()
+                if self.light_is_on() == False:
+                    return
+            # else:
+            #     return
             
-            The problem I keep running into and can't get around is two-fold:
 
-            1) Someone had something specific in mind with this code, but never bothered to 
-            write down what they were trying to get at, so I'm left to play psychic 
-            mindreader detective for most of the sprint while time ticks away instead of coding
+                
+            
 
-            2) The robot is already holding an item - "None" is not "nothing" - it's 
-            something, essentially an item of infinitely small value.  Trying to order 
-            a list from least to greatest will always leave "None" at the beginnging, 
-            and the robot holding the greatest value.
+    #     self.swap_item()
+    #     for i in range(len(l)):
+    #         #print("position at *i* is: ", self._position)
+    #         #print("Initially holding: ", self._item)
+    #         for j in range(i+1, len(l)):
+    #             if l[i] > l[j]:
+                    
+    #                 print("yes")
+    #                 print(l[i]
+    #     return l
+# """" Pseudo-code:
+#         Selective Sort:
+#             Set initial value to first item in array
+#             Compare to next item in array - if item one index position up is greater, swap, if not, continue
 
-    """"
+#         Bubble Sort:
+#             Move thru items in array and compare i to i+1.  If item is smaller, swap, if not, move on.
+            
+#             The problem I keep running into and can't get around is two-fold:
+
+#             1) Someone had something specific in mind with this code, but never bothered to 
+#             write down what they were trying to get at, so I'm left to play psychic 
+#             mindreader detective for most of the sprint while time ticks away instead of coding
+
+#             2) The robot is already holding an item - "None" is not "nothing" - it's 
+#             something, essentially an item of infinitely small value.  Trying to order 
+#             a list from least to greatest will always leave "None" at the beginnging, 
+#             and the robot holding the greatest value.
+
+#     """"
             
             #self._item = i
             # 
@@ -156,20 +203,21 @@ class SortingRobot:
                     #l[i], l[self._item] = l[self._item], l[i]
 
 
-#   def sort(self):
-#         """
-#         Sort the robot's list.
-#         """
-#         for i in range(len(l)):
-#             #min_index = i
-#             self._item = i
-#             for j in range(i+1, len(l)):
-#                 #if self.compare_item() == -1:
-#                     #self.swap_item()
-#                 if l[j] < l[i]:
-#                     self._item = j
-#                     l[i], l[self._item] = l[self._item], l[i]
-#         return l
+    # def sort(self):
+    #     """
+    #     Sort the robot's list.
+    #     """
+        
+    #     for i in range(len(l)):
+    #         #min_index = i
+    #         self._item = i
+    #         for j in range(i+1, len(l)):
+    #             #if self.compare_item() == -1:
+    #                 #self.swap_item()
+    #             if l[j] < l[i]:
+    #                 self._item = j
+    #                 l[i], l[self._item] = l[self._item], l[i]
+    #     return l
 
     # for i in range(len(array)):
     #     min_index = i
@@ -194,7 +242,7 @@ class SortingRobot:
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
-    l = [5, 4, 3, 2, 1]
+    l = [5, 4, 5, 3, 2, 1, 0, 5, 2]
     #l = [15, 41, 58, 49, 26, 4, 28, 8, 61, 60, 65, 21, 78, 14, 35, 90, 54, 5, 0, 87, 82, 96, 43, 92, 62, 97, 69, 94, 99, 93, 76, 47, 2, 88, 51, 40, 95, 6, 23, 81, 30, 19, 25, 91, 18, 68, 71, 9, 66, 1, 45, 33, 3, 72, 16, 85, 27, 59, 64, 39, 32, 24, 38, 84, 44, 80, 11, 73, 42, 20, 10, 29, 22, 98, 17, 48, 52, 67, 53, 74, 77, 37, 63, 31, 7, 75, 36, 89, 70, 34, 79, 83, 13, 57, 86, 12, 56, 50, 55, 46]
 
     robot = SortingRobot(l)

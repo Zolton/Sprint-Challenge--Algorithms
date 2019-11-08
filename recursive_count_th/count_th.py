@@ -6,7 +6,7 @@ Your function must utilize recursion. It cannot contain any loops.
 '''
 test = "THtHThth"
 test2 = "abcthefthghith"
-test3 = "asdf"
+test3 = "abcthxyz"
 count = 0
 def count_th(word):
     global count
@@ -28,6 +28,6 @@ def count_th(word):
     return count
 
 
-print(count_th(test))
+print(count_th(test3))
     
    

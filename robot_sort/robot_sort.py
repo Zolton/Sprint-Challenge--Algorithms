@@ -4,7 +4,7 @@ class SortingRobot:
         SortingRobot takes a list and sorts it.
         """
         self._list = l          # The list the robot is tasked with sorting
-        self._item = None       # The item the robot is holding
+        self._item = None      # The item the robot is holding
         self._position = 0      # The list position the robot is at
         self._light = "OFF"     # The state of the robot's light
         self._time = 0          # A time counter (stretch)
@@ -108,15 +108,88 @@ class SortingRobot:
         Sort the robot's list.
         """
 
+        self.swap_item()
         for i in range(len(l)):
-            #min_index = i
-            self._item = i
+            #print("position at *i* is: ", self._position)
+            #print("Initially holding: ", self._item)
             for j in range(i+1, len(l)):
-                #if self.compare_item() < 1:
-                if l[j] < l[i]:
-                    self._item = j
-                    l[i], l[self._item] = l[self._item], l[i]
+                if l[i] > l[j]:
+                    
+                    print("yes")
+                    print(l[i]
         return l
+"""" Pseudo-code:
+        Selective Sort:
+            Set initial value to first item in array
+            Compare to next item in array - if item one index position up is greater, swap, if not, continue
+
+        Bubble Sort:
+            Move thru items in array and compare i to i+1.  If item is smaller, swap, if not, move on.
+            
+            The problem I keep running into and can't get around is two-fold:
+
+            1) Someone had something specific in mind with this code, but never bothered to 
+            write down what they were trying to get at, so I'm left to play psychic 
+            mindreader detective for most of the sprint while time ticks away instead of coding
+
+            2) The robot is already holding an item - "None" is not "nothing" - it's 
+            something, essentially an item of infinitely small value.  Trying to order 
+            a list from least to greatest will always leave "None" at the beginnging, 
+            and the robot holding the greatest value.
+
+    """"
+            
+            #self._item = i
+            # 
+            #     self.move_right()
+            #     if self.compare_item() == 1:
+            #         self.swap_item()
+            #         print("state of array is: ", l)
+               # print("held item is: ", self._item)
+                #print("position -J- is: ", self._position)
+                
+                #print("looking at: ", l[j])
+                #print("Hello")
+                    #self.swap_item()
+                #if l[j] < l[i]:
+                    #self._item = j
+                    #l[i], l[self._item] = l[self._item], l[i]
+
+
+#   def sort(self):
+#         """
+#         Sort the robot's list.
+#         """
+#         for i in range(len(l)):
+#             #min_index = i
+#             self._item = i
+#             for j in range(i+1, len(l)):
+#                 #if self.compare_item() == -1:
+#                     #self.swap_item()
+#                 if l[j] < l[i]:
+#                     self._item = j
+#                     l[i], l[self._item] = l[self._item], l[i]
+#         return l
+
+    # for i in range(len(array)):
+    #     min_index = i
+    #     for j in range(i+1, len(array)):
+    #         if array[j] < array[i]:
+    #     array[i], array[self._item] = array[self._item], array[i]
+    # return array
+
+#  * You may use any pre-defined robot methods.
+#   * You may NOT modify any pre-defined robot methods.
+#   * You may use logical operators. (`if`, `and`, `or`, `not`, etc.)
+#   * You may use comparison operators. (`>`, `>=`, `<`, `<=`, `==`, `is`, etc.)
+#   * You may use iterators. (`while`, `for`, `break`, `continue`)
+
+#   * You may NOT store any variables. (`=`)
+#   * You may NOT access any instance variables directly. (`self._anything`)
+#   * You may NOT use any Python libraries or class methods. (`sorted()`, etc.)
+#   * You may define robot helper methods, as long as they follow all the rules.
+
+
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
